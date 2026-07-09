@@ -1,0 +1,6 @@
+{
+  "name": "우리회사 - 국가 표준 교정 및 성적서 발급 전문",
+  "description": "국가 표준 계측기 정밀 교정 및 공인 성적서 발급 전문 기업 우리회사의 모던하고 편집 가능한 기업 웹사이트 및 통합 관리자 대시보드",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
