@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Printer, ClipboardCheck, Landmark, CheckCircle, Send, Navigation, HeartHandshake } from 'lucide-react';
+import { Mail, Phone, MapPin, Printer, ClipboardCheck, Landmark, CheckCircle, Send, Navigation, HeartHandshake, FileText, Download, FileDown } from 'lucide-react';
 import { CompanyInfo, Inquiry } from '../types';
 import { EditableText } from './EditableText';
 
@@ -36,6 +36,76 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       setSelectedProduct(preSelectedProductName);
     }
   }, [preSelectedProductName]);
+
+  const handleDownloadForm = (format: 'hwp' | 'docx' | 'pdf') => {
+    const content = `===============================================================
+[공식] KOLAS 표준 계측기 교정 및 성적서 발급 의뢰서 (${format.toUpperCase()})
+===============================================================
+
+1. 의뢰인 및 신청 기관 정보
+---------------------------------------------------------------
+- 신청 회사/기관명 : [                             ]
+- 사업자등록번호   : [                             ]
+- 대표자명         : [                             ]
+- 담당자 성함/직급 : [                             ]
+- 직통 전화번호     : [                             ]
+- 회신 이메일 주소 : [                             ]
+- 주소 (성적서 수령): [                             ]
+
+2. 교정 대상 계측 장비 명세
+---------------------------------------------------------------
+순번 | 장비명/품명 | 제조사 | 모델명 | 시리얼번호(S/N) | 수량 | 희망 교정일
+---------------------------------------------------------------
+ 1  |             |        |        |                 |      |
+ 2  |             |        |        |                 |      |
+ 3  |             |        |        |                 |      |
+ 4  |             |        |        |                 |      |
+ 5  |             |        |        |                 |      |
+
+3. 성적서 및 교정 요청 조건
+---------------------------------------------------------------
+[ ] KOLAS 공인 교정 성적서 발급 요청
+[ ] 국문 성적서  [ ] 영문 성적서  [ ] 둘 다 필요
+[ ] 정기 출장 정밀 교정 (현장 방문 요청)
+[ ] 입고 교정 (연구실 택배/직접 입고)
+[ ] 긴급 처리 요청 (3 영업일 이내)
+
+4. 세부 요청사항 및 현장 특이사항
+---------------------------------------------------------------
+[                                                             ]
+[                                                             ]
+
+---------------------------------------------------------------
+위와 같이 계측 장비 교정 및 성적서 발급을 공식 의뢰합니다.
+
+신청일자 : 2026년    월    일
+신 청 인 :                        (서명 또는 인)
+
+접수처 : (주)기인교정기술원 연구소
+전  화 : ${companyInfo.phone}  |  팩  스 : ${companyInfo.fax}
+이메일 : ${companyInfo.email}
+===============================================================`;
+
+    let mimeType = 'text/plain;charset=utf-8';
+    let extension = format;
+    if (format === 'docx') {
+      mimeType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    } else if (format === 'hwp') {
+      mimeType = 'application/x-hwp';
+    } else if (format === 'pdf') {
+      mimeType = 'application/pdf';
+    }
+
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `KOLAS_교정_및_성적서_발급_의뢰서_양식.${extension}`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,8 +168,61 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   };
 
   return (
-    <div className="space-y-12 py-10 animate-in fade-in duration-300">
+    <div className="space-y-8 py-10 animate-in fade-in duration-300">
       
+      {/* Top Banner: Download Calibration Request Form Templates */}
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="bg-gradient-to-r from-sky-900 via-slate-900 to-slate-900 text-white rounded-2xl p-5 sm:p-6 shadow-lg border border-sky-700/50 flex flex-col md:flex-row md:items-center justify-between gap-5 relative overflow-hidden">
+          <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-sky-500/10 rounded-full blur-2xl pointer-events-none" />
+          
+          <div className="space-y-1.5 z-10">
+            <div className="flex items-center gap-2">
+              <span className="bg-sky-500/20 text-sky-300 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border border-sky-400/30 flex items-center gap-1">
+                <FileDown className="w-3.5 h-3.5 text-sky-400" />
+                공식 교정 의뢰서 양식 다운로드
+              </span>
+              <span className="text-xs text-slate-300 hidden sm:inline">사내 결재 / 서면 제출용 서식</span>
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+              KOLAS 계측기 교정 및 성적서 발급 신청서 양식
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed max-w-2xl">
+              온라인 접수 외에 사내 결재, 서면 제출, 또는 이메일 접수({companyInfo.email})를 원하시는 경우, 아래 원하시는 서식 파일(HWP / DOCX / PDF)을 다운로드하여 사용하실 수 있습니다.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0 flex-wrap z-10">
+            <button
+              id="btn-download-form-hwp"
+              type="button"
+              onClick={() => handleDownloadForm('hwp')}
+              className="bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow-md hover:shadow-sky-500/20 active:scale-95 cursor-pointer"
+            >
+              <Download className="w-4 h-4" />
+              HWP 양식 다운
+            </button>
+            <button
+              id="btn-download-form-docx"
+              type="button"
+              onClick={() => handleDownloadForm('docx')}
+              className="bg-slate-800 hover:bg-slate-700 text-sky-300 font-extrabold text-xs px-3.5 py-2.5 rounded-xl border border-sky-500/30 transition-all flex items-center gap-1.5 hover:border-sky-400 active:scale-95 cursor-pointer"
+            >
+              <FileText className="w-4 h-4 text-sky-400" />
+              DOCX 양식 다운
+            </button>
+            <button
+              id="btn-download-form-pdf"
+              type="button"
+              onClick={() => handleDownloadForm('pdf')}
+              className="bg-slate-800 hover:bg-slate-700 text-rose-300 font-extrabold text-xs px-3.5 py-2.5 rounded-xl border border-rose-500/30 transition-all flex items-center gap-1.5 hover:border-rose-400 active:scale-95 cursor-pointer"
+            >
+              <FileDown className="w-4 h-4 text-rose-400" />
+              PDF 양식 다운
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
         
         {/* Left column: Contact Info & Interactive Simulated Map Card */}
@@ -243,9 +366,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         {/* Right column: Online Inquiry Form */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-slate-800 border-b border-slate-100 pb-3">
-              <ClipboardCheck className="w-5 h-5 text-sky-500" />
-              <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">KOLAS 표준 계측기 교정 및 성적서 발급 의뢰서</h3>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-slate-800 border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2">
+                <ClipboardCheck className="w-5 h-5 text-sky-500 shrink-0" />
+                <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">KOLAS 표준 계측기 교정 및 성적서 발급 의뢰서</h3>
+              </div>
+              <div className="flex items-center gap-1.5 self-start sm:self-auto text-[11px] font-bold text-sky-800 bg-sky-50 px-2.5 py-1 rounded-lg border border-sky-200/80">
+                <span className="text-slate-500 font-medium">양식 다운로드:</span>
+                <button type="button" onClick={() => handleDownloadForm('hwp')} className="hover:text-sky-600 hover:underline font-extrabold cursor-pointer">HWP</button>
+                <span className="text-sky-300">•</span>
+                <button type="button" onClick={() => handleDownloadForm('docx')} className="hover:text-sky-600 hover:underline font-extrabold cursor-pointer">DOCX</button>
+                <span className="text-sky-300">•</span>
+                <button type="button" onClick={() => handleDownloadForm('pdf')} className="hover:text-sky-600 hover:underline font-extrabold cursor-pointer">PDF</button>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-3.5 text-xs text-slate-700">
@@ -268,7 +401,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     required
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="한국환경연구원 또는 (주)우리텍"
+                    placeholder="한국환경연구원 또는 (주)기인교정기술원"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none"
                   />
                 </div>

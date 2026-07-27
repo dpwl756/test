@@ -126,7 +126,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           국가 교정 기준에 부합하는 철저한 유지보수 서비스
         </h2>
         <p className="text-slate-500 text-sm max-w-2xl mx-auto">
-          우리회사는 장비를 판매하는 회사가 아니며, 연구원분들이 사용 중인 계측기 및 파쇄 장비의 최고 수준의 정확성 보존과 KOLAS 국가 표준 연계 교정, 센서 영점 복원, 프로브 성능 조율을 전문으로 합니다.
+          기인교정기술원은 연구원분들이 사용 중인 계측기 및 파쇄 장비의 최고 수준의 정확성 보존과 KOLAS 국가 표준 연계 교정, 센서 영점 복원, 프로브 성능 조율을 전문으로 합니다.
         </p>
       </div>
 

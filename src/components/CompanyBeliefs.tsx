@@ -97,11 +97,11 @@ export const CompanyBeliefs: React.FC<CompanyBeliefsProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
             {/* Visual Brand Tag */}
             <div className="md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left space-y-2 border-b md:border-b-0 md:border-r border-slate-100 pb-4 md:pb-0 md:pr-6">
-              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold shadow-sm">
-                WOORI
+              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold text-xs shadow-sm">
+                KIIN
               </div>
               <div>
-                <span className="block text-xs font-extrabold text-slate-900">우리회사</span>
+                <span className="block text-xs font-extrabold text-slate-900">기인교정기술원</span>
                 <span className="block text-[9px] text-slate-400 font-mono uppercase tracking-wider font-bold">ESTD 2010</span>
               </div>
             </div>

@@ -20,7 +20,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
       {/* Intro block */}
       <div className="max-w-3xl mx-auto text-center space-y-4">
         <span className="text-xs font-extrabold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
-          ABOUT WOORI COMPANY
+          ABOUT KIIN CALIBRATION
         </span>
         <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
           지속 가능한 지구 환경을 위한 스마트 계측 솔루션
@@ -48,7 +48,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="p-2.5 bg-sky-500 rounded-xl text-white">
               <Target className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-slate-900 text-lg">우리회사의 미션 (Mission)</h3>
+            <h3 className="font-extrabold text-slate-900 text-lg">기인교정기술원의 미션 (Mission)</h3>
           </div>
           <div className="text-slate-600 text-xs sm:text-sm leading-relaxed z-10 relative">
             <EditableText
@@ -71,7 +71,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="p-2.5 bg-sky-500 rounded-xl text-white">
               <Eye className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-slate-900 text-lg">우리회사의 비전 (Vision)</h3>
+            <h3 className="font-extrabold text-slate-900 text-lg">기인교정기술원의 비전 (Vision)</h3>
           </div>
           <div className="text-slate-600 text-xs sm:text-sm leading-relaxed z-10 relative">
             <EditableText

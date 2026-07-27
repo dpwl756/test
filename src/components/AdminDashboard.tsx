@@ -195,7 +195,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight">통합 운영 관리 시스템 (어드민 대시보드)</h2>
-            <p className="text-slate-400 text-xs mt-1">우리회사 웹사이트 콘텐츠, 뉴스 공지사항, 고객 문의 수신함을 실시간으로 관리하고 제어합니다.</p>
+            <p className="text-slate-400 text-xs mt-1">기인교정기술원 웹사이트 콘텐츠, 뉴스 공지사항, 고객 문의 수신함을 실시간으로 관리하고 제어합니다.</p>
           </div>
           <div className="flex items-center gap-4 bg-slate-950/40 p-3 rounded-xl border border-slate-700/30">
             <div className="text-center px-3 border-r border-slate-800">

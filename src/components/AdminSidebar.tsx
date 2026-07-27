@@ -63,7 +63,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Settings className="w-5 h-5 text-sky-400" />
-          <span className="font-bold text-sm tracking-tight text-white">우리회사 사이트 편집기</span>
+          <span className="font-bold text-sm tracking-tight text-white">기인교정기술원 사이트 편집기</span>
         </div>
         <div className="flex items-center gap-1">
           <button

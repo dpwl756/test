@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import kiinLogo from './assets/images/kiin_circle_clean_logo_1784879950183.jpg';
 import {
   Layers,
   ShieldCheck,
@@ -280,8 +281,13 @@ export default function App() {
             onClick={() => setActiveSection('home')}
             className="flex items-center gap-2.5 group text-left cursor-pointer"
           >
-            <div className="w-9 h-9 rounded-xl theme-accent-bg flex items-center justify-center text-white font-extrabold shadow-md transform group-hover:scale-105 transition-all">
-              <Activity className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-slate-200 shadow-md transform group-hover:scale-105 transition-all bg-white flex items-center justify-center shrink-0">
+              <img
+                src={kiinLogo}
+                alt="기인교정기술원 로고"
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div>
               <h1 className="text-base sm:text-lg font-black tracking-tight text-slate-900 leading-tight">
@@ -293,7 +299,7 @@ export default function App() {
                   className="font-black text-slate-900"
                 />
               </h1>
-              <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wider font-mono">Environmental & Ultrasonic Systems</p>
+              <p className="text-[9px] text-sky-600 font-extrabold uppercase tracking-wider font-mono">Precision Calibration & Measurement</p>
             </div>
           </button>
 
@@ -406,7 +412,7 @@ export default function App() {
                   </h2>
 
                   <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg">
-                    우리회사는 국가 연구소, 환경 측정망 및 바이오 나노 공정용 티타늄 균질 가공 등 최고 수준의 제품과 신속방문 KOLAS 공인 교정 유지관리 서비스를 일괄 지원합니다.
+                    기인교정기술원은 국가 연구소, 환경 측정망 및 바이오 나노 공정용 티타늄 균질 가공 등 최고 수준의 제품과 신속방문 KOLAS 공인 교정 유지관리 서비스를 일괄 지원합니다.
                   </p>
 
                   <div className="flex flex-wrap gap-3.5">
@@ -474,7 +480,7 @@ export default function App() {
                   OUR BUSINESS FIELDS
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  우리회사의 3대 핵심 핵심 사업 부문
+                  기인교정기술원의 3대 핵심 사업 부문
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm">
                   정밀 환경 측정 시스템 구축, 첨단 미세먼지 수집 성분 분석, 실험실 나노 분산 가공에 이르기까지 전문 엔지니어링을 자랑합니다.
@@ -559,7 +565,7 @@ export default function App() {
                 <div className="space-y-2.5 max-w-xl">
                   <h4 className="text-lg font-extrabold text-slate-900 tracking-tight">KOLAS 공인 교정 인증 및 철저한 A/S 보장</h4>
                   <p className="text-slate-500 text-xs sm:text-sm">
-                    우리회사에서 도입하신 모든 가스 탐지기와 수질 측정 센서, 미세먼지 샘플러는 매년 국가 규정 기준에 따른 고정밀 방문 영점 보정 서비스를 저렴하게 약정 신청할 수 있습니다.
+                    기인교정기술원에서 도입하신 모든 가스 탐지기와 수질 측정 센서, 미세먼지 샘플러는 매년 국가 규정 기준에 따른 고정밀 방문 영점 보정 서비스를 저렴하게 약정 신청할 수 있습니다.
                   </p>
                 </div>
                 <button
@@ -593,13 +599,13 @@ export default function App() {
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
             <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
               <span className="text-xs font-extrabold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
-                WOORI PRODUCT SPECIFICATIONS
+                KIIN CALIBRATION PRODUCTS
               </span>
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                 카테고리별 전문 산업용 장비군
               </h2>
               <p className="text-slate-500 text-xs sm:text-sm">
-                우리회사의 고정밀 계측 기기와 최신 공정 모듈 리스트입니다. 견적 신청 시 담당 전문 연구원이 빠르게 컨설팅을 도와드립니다.
+                기인교정기술원의 고정밀 계측 기기와 최신 공정 모듈 리스트입니다. 견적 신청 시 담당 전문 연구원이 빠르게 컨설팅을 도와드립니다.
               </p>
             </div>
             <ProductsSection
@@ -629,13 +635,13 @@ export default function App() {
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
             <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
               <span className="text-xs font-extrabold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
-                COMPANY NOTICES & TECHNICAL MANUALS
+                KIIN NOTICES & TECHNICAL MANUALS
               </span>
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-                우리회사 공지사항 및 기술공유 백서
+                기인교정기술원 공지사항 및 기술공유 백서
               </h2>
               <p className="text-slate-500 text-xs sm:text-sm">
-                정부 연구 개발 과제 진행 일정, 장비 운용 한글 한글 가이드 설명서, 그리고 최신 정밀 계측 학회 학술 자료 등을 전해드립니다.
+                정부 연구 개발 과제 진행 일정, 장비 운용 한글 가이드 설명서, 그리고 최신 정밀 계측 학회 학술 자료 등을 전해드립니다.
               </p>
             </div>
             <NoticeSection
@@ -700,14 +706,19 @@ export default function App() {
           {/* Top row: brand and social links */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-slate-800 pb-8">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-white">
-                <div className="w-6 h-6 rounded theme-accent-bg flex items-center justify-center text-white font-extrabold text-xs">
-                  <Activity className="w-3.5 h-3.5" />
+              <div className="flex items-center gap-2.5 text-white">
+                <div className="w-8 h-8 rounded-lg overflow-hidden border border-slate-700 bg-white flex items-center justify-center shrink-0">
+                  <img
+                    src={kiinLogo}
+                    alt="기인교정기술원 로고"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
-                <span className="font-bold text-sm tracking-tight">우리회사 (Woori Company)</span>
+                <span className="font-bold text-base tracking-tight text-white">기인교정기술원</span>
               </div>
               <p className="text-slate-500 text-[11px] leading-relaxed max-w-sm">
-                우리회사는 지속적인 기술 제휴와 국내 직접 가공 생산 라인 조성을 통해 최고 품질의 대기·수질 센서 장비와 초음파 파쇄 가열 장비를 정직하게 제공합니다.
+                기인교정기술원은 지속적인 기술 제휴와 표준 교정 자동화 시스템 조성을 통해 최고 품질의 대기·수질 센서 장비와 초음파 파쇄 가열 장비 교정 서비스를 제공합니다.
               </p>
             </div>
 
@@ -776,7 +787,7 @@ export default function App() {
             <div className="space-y-3 leading-relaxed">
               <h5 className="font-extrabold text-slate-300 text-[11px] uppercase tracking-wider">신뢰 약정 및 책임 보증</h5>
               <p className="text-[11px]">
-                우리회사의 모든 미세먼지 측정장비 및 수질 다항목 센서는 환경부 공인 형식승인 1등급 인증 규격을 득하였으며, 초음파 파쇄 가동 소모품 프로브 임피던스는 1년간 무상 보증 수리를 보장합니다.
+                기인교정기술원의 모든 미세먼지 측정장비 및 수질 다항목 센서는 환경부 공인 형식승인 1등급 인증 규격을 득하였으며, 초음파 파쇄 가동 소모품 프로브 임피던스는 1년간 무상 보증 수리를 보장합니다.
               </p>
             </div>
           </div>

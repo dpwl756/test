@@ -62,7 +62,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({
   onChange,
   adminMode,
   className = '',
-  alt = '우리회사 이미지'
+  alt = '기인교정기술원 이미지'
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [customUrl, setCustomUrl] = useState(src);
@@ -158,7 +158,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({
               {/* Presets List */}
               <div className="space-y-3">
                 <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                  우리회사 카테고리별 추천 이미지 프리셋 ({IMAGE_PRESETS.length}개)
+                  기인교정기술원 카테고리별 추천 이미지 프리셋 ({IMAGE_PRESETS.length}개)
                 </h4>
                 <div className="grid grid-cols-3 gap-2">
                   {IMAGE_PRESETS.map((preset, index) => {
