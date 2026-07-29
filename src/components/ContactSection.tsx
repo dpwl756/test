@@ -38,6 +38,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   }, [preSelectedProductName]);
 
   const handleDownloadForm = (format: 'hwp' | 'docx' | 'pdf') => {
+    if (format === 'hwp') {
+      window.open('https://drive.google.com/file/d/1ShRDqtQ48qVfGZxcJXzLJN19debYoNNx/view?usp=sharing', '_blank');
+      return;
+    }
     const content = `===============================================================
 [공식] KOLAS 표준 계측기 교정 및 성적서 발급 의뢰서 (${format.toUpperCase()})
 ===============================================================
@@ -90,8 +94,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     let extension = format;
     if (format === 'docx') {
       mimeType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-    } else if (format === 'hwp') {
-      mimeType = 'application/x-hwp';
     } else if (format === 'pdf') {
       mimeType = 'application/pdf';
     }
@@ -192,15 +194,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </div>
 
           <div className="flex items-center gap-2 shrink-0 flex-wrap z-10">
-            <button
+            <a
               id="btn-download-form-hwp"
-              type="button"
-              onClick={() => handleDownloadForm('hwp')}
+              href="https://drive.google.com/file/d/1ShRDqtQ48qVfGZxcJXzLJN19debYoNNx/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5 shadow-md hover:shadow-sky-500/20 active:scale-95 cursor-pointer"
             >
               <Download className="w-4 h-4" />
               HWP 양식 다운
-            </button>
+            </a>
             <button
               id="btn-download-form-docx"
               type="button"
@@ -373,7 +376,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
               <div className="flex items-center gap-1.5 self-start sm:self-auto text-[11px] font-bold text-sky-800 bg-sky-50 px-2.5 py-1 rounded-lg border border-sky-200/80">
                 <span className="text-slate-500 font-medium">양식 다운로드:</span>
-                <button type="button" onClick={() => handleDownloadForm('hwp')} className="hover:text-sky-600 hover:underline font-extrabold cursor-pointer">HWP</button>
+                <a href="https://drive.google.com/file/d/1ShRDqtQ48qVfGZxcJXzLJN19debYoNNx/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 hover:underline font-extrabold cursor-pointer">HWP</a>
                 <span className="text-sky-300">•</span>
                 <button type="button" onClick={() => handleDownloadForm('docx')} className="hover:text-sky-600 hover:underline font-extrabold cursor-pointer">DOCX</button>
                 <span className="text-sky-300">•</span>
